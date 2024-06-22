@@ -2,6 +2,9 @@
   "name": "whiskers-back",
   "module": "./src/index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run --watch ./src/index.ts"
+  },
   "dependencies": {
     "whiskers-app": "workspace:*"
   },

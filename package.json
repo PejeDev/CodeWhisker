@@ -8,6 +8,6 @@
     "packages/*"
   ],
   "scripts": {
-    "serve:dev": "bun run --filter "
+    "serve:dev": "bun run --cwd packages/executor cli"
   }
 }
