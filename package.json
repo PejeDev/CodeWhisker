@@ -1,0 +1,13 @@
+{
+  "name": "code-whiskers",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "serve:dev": "bun run --filter "
+  }
+}

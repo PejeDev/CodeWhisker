@@ -1,0 +1,14 @@
+{
+  "name": "whiskers-back",
+  "module": "./src/index.ts",
+  "type": "module",
+  "dependencies": {
+    "whiskers-app": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
