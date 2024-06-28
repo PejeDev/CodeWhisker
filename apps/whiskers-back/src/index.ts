@@ -1,1 +1,1 @@
-console.log("Hello, Whiskers!");
+const banana = "banana";

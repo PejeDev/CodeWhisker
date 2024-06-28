@@ -3,21 +3,17 @@ import {
   type WhiskerServiceRunFunctionType,
   type WhiskersExecutorServiceEnumType,
 } from "../types";
+import { runWhiskersApp } from "./whiskers-app";
+import { runWhiskersBack } from "./whiskers-back";
+import { runWhiskersDocs } from "./whiskers-docs";
+import { runWhiskersFull } from "./whiskers-full";
 
 export const runService: Record<
   WhiskersExecutorServiceEnumType,
   WhiskerServiceRunFunctionType
 > = {
-  [WhiskersExecutorServiceEnum.WHISKERS_APP]: async (_a, _b) => {
-    console.log("whiskers-app");
-  },
-  [WhiskersExecutorServiceEnum.WHISKERS_BACK]: async (_a, _b) => {
-    console.log("whiskers-back");
-  },
-  [WhiskersExecutorServiceEnum.WHISKERS_DOCS]: async (_a, _b) => {
-    console.log("whiskers-docs");
-  },
-  [WhiskersExecutorServiceEnum.WHISKERS_FULL]: async (_a, _b) => {
-    console.log("whiskers-full");
-  },
+  [WhiskersExecutorServiceEnum.WHISKERS_APP]: runWhiskersApp,
+  [WhiskersExecutorServiceEnum.WHISKERS_BACK]: runWhiskersBack,
+  [WhiskersExecutorServiceEnum.WHISKERS_DOCS]: runWhiskersDocs,
+  [WhiskersExecutorServiceEnum.WHISKERS_FULL]: runWhiskersFull,
 };

@@ -7,7 +7,6 @@ import {
   type WhiskersExecutorCommandsType,
 } from "./lib/types";
 import { logger } from "./lib/utils/logger";
-import { z } from "zod";
 import { runService } from "./lib/services";
 
 // Parse cli arguments
