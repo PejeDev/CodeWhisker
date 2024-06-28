@@ -5,7 +5,7 @@ import {
   type WhiskersExecutorValuesType,
 } from '../types'
 import { logger } from '../utils/logger'
-import { runVMCompose } from './vm'
+import { runVmCompose } from './vm'
 
 export async function runWhiskersBack(
   context: WhiskerExecutorInputContextType,
@@ -16,7 +16,7 @@ export async function runWhiskersBack(
 
   if (values.mode !== WhiskersExecutorModeEnum.DOCKERLESS) {
     const path = `${context.projectFolder}/docker/whiskers-back/docker-compose.yml`
-    await runVMCompose(path)
+    await runVmCompose(path)
   }
 
   logger.info(`🚀 running ${excCommand} on ${values.service}`)

@@ -1,12 +1,12 @@
 import { $, type ShellOutput } from 'bun'
 import { logger } from '../utils/logger'
 
-export async function runVMCompose(path: string): Promise<void> {
+export async function runVmCompose(path: string): Promise<void> {
   try {
-    const isVMInstalledOrRunning = await isVMRunning()
+    const isVmInstalledOrRunning = await isVmRunning()
     const isComposeInstalled = await isDockerComposeInstalled()
 
-    if (!isVMInstalledOrRunning) {
+    if (!isVmInstalledOrRunning) {
       logger.error(
         '🔥 Docker or Podman is required to run in standard mode, use --mode=dockerless to run without Docker or Podman.',
       )
@@ -43,7 +43,7 @@ export async function runDockerCompose(
   return cli
 }
 
-export async function isVMRunning(): Promise<boolean> {
+export async function isVmRunning(): Promise<boolean> {
   const isDocker = await isDockerInstalled()
   const isPodman = await isPodmanInstalled()
 
