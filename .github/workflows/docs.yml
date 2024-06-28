@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Whiskers Docs
 
 on:
   push:
@@ -30,6 +30,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy Whiskers Docs
         id: deployment
         uses: actions/deploy-pages@v4

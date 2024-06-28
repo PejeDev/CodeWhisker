@@ -1,54 +1,78 @@
-import { $ } from "bun";
+import { $, type ShellOutput } from "bun";
 import { logger } from "../utils/logger";
 
-export async function runVMCompose(path: string) {
-  try {
-    const isDocker = await isDockerInstalled();
-    const isPodmanCompose = await isPodmanComposeInstalled();
+export async function runVMCompose(path: string): Promise<void> {
+	try {
+		const isVMInstalledOrRunning = await isVMRunning();
+		const isComposeInstalled = await isDockerComposeInstalled();
 
-    if (!isDocker && !isPodmanCompose) {
-      logger.error(
-        "🔥 Docker or Podman Compose is required to run this command"
-      );
-      process.exit();
-    }
-    const command = isDocker ? "docker compose" : "docker-compose";
+		if (!isVMInstalledOrRunning) {
+			logger.error(
+				"🔥 Docker or Podman is required to run in standard mode, use --mode=dockerless to run without Docker or Podman.",
+			);
+			process.exit();
+		}
 
-    logger.info(`🚀 Running VM development containers`);
-    const { stderr } =
-      await $`${command} --file ${path} up --detach --remove-orphans`.quiet();
+		if (isComposeInstalled) {
+			logger.error(
+				"🔥 Docker or Podman Compose is required to run this service in standard mode",
+			);
+			process.exit();
+		}
 
-    logger.info(stderr.toString());
-  } catch (error) {
-    logger.error("🔥 Error running VM development containers");
-    logger.error(error);
-    process.exit();
-  }
+		logger.info("🚀 Running VM development containers");
+
+		const { stderr } = await runDockerCompose(
+			path,
+			"up --detach --remove-orphans",
+		);
+
+		logger.info(stderr.toString());
+	} catch (error) {
+		logger.error("🔥 Error running VM development containers");
+		logger.error(error);
+		process.exit();
+	}
 }
 
-export async function isDockerInstalled() {
-  try {
-    await $`docker --version`.quiet();
-    return true;
-  } catch (error) {
-    return false;
-  }
+export async function runDockerCompose(
+	path: string,
+	args: string,
+): Promise<ShellOutput> {
+	const cli = await $`docker-compose --file ${path} ${args}`.quiet();
+	return cli;
 }
 
-export async function isPodmanInstalled() {
-  try {
-    await $`podman --version`.quiet();
-    return true;
-  } catch (error) {
-    return false;
-  }
+export async function isVMRunning(): Promise<boolean> {
+	const isDocker = await isDockerInstalled();
+	const isPodman = await isPodmanInstalled();
+
+	return isDocker || isPodman;
 }
 
-export async function isPodmanComposeInstalled() {
-  try {
-    await $`podman compose version`.quiet();
-    return true;
-  } catch (error) {
-    return false;
-  }
+export async function isDockerInstalled(): Promise<boolean> {
+	try {
+		await $`docker --version`.quiet();
+		return true;
+	} catch (error) {
+		return false;
+	}
+}
+
+export async function isPodmanInstalled(): Promise<boolean> {
+	try {
+		await $`podman --version`.quiet();
+		return true;
+	} catch (error) {
+		return false;
+	}
+}
+
+export async function isDockerComposeInstalled(): Promise<boolean> {
+	try {
+		await $`docker-compose version`.quiet();
+		return true;
+	} catch (error) {
+		return false;
+	}
 }

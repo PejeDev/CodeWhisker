@@ -9,6 +9,7 @@
     "packages/shared/*"
   ],
   "scripts": {
-    "exc": "bun run --cwd packages/executor exc"
+    "exc": "bun run --cwd packages/executor exc",
+    "test:executor": "bun test --cwd packages/executor"
   }
 }
