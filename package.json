@@ -5,9 +5,10 @@
   "type": "module",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "packages/shared/*"
   ],
   "scripts": {
-    "serve:dev": "bun run --cwd packages/executor cli"
+    "exc": "bun run --cwd packages/executor exc"
   }
 }
