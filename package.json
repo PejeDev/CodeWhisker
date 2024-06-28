@@ -3,11 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "packages/shared/*"
-  ],
+  "workspaces": ["apps/*", "packages/*", "packages/shared/*"],
   "scripts": {
     "exc": "bun run --cwd packages/executor exc",
     "test:executor": "bun test --cwd packages/executor"
