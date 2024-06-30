@@ -53,5 +53,8 @@
       "quoteStyle": "single",
       "attributePosition": "auto"
     }
+  },
+  "files": {
+    "ignore": [".next/**", ".astro/**"]
   }
 }

@@ -1,1 +1,5 @@
+# Run lint on pre-commit
 bun run lint
+
+# Run tests on pre-commit
+bun run test

@@ -6,8 +6,9 @@
   "workspaces": ["apps/*", "packages/*", "packages/shared/*"],
   "scripts": {
     "exc": "bun run --cwd packages/executor exc",
+    "test": "bun test",
     "test:executor": "bun test --cwd packages/executor",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "lint": "bun run lint:packages && bun run lint:apps",
     "lint:packages": "bun run biome ci ./packages ",
     "lint:apps": "bun run biome ci ./apps "

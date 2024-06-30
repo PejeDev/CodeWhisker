@@ -7,6 +7,9 @@ on:
       - "packages/executor/**"
   workflow_dispatch:
 
+env:
+  HUSKY: 0
+
 jobs:
   code-lint:
     runs-on: ubuntu-latest

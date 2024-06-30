@@ -7,6 +7,9 @@ on:
       - "apps/whiskers-docs/**"
   workflow_dispatch:
 
+env:
+  HUSKY: 0
+
 permissions:
   contents: read
   pages: write
