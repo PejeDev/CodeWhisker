@@ -7,9 +7,6 @@
     "build": "bun build ./src/index.ts",
     "serve:dev": "bun run --watch ./src/index.ts"
   },
-  "dependencies": {
-    "whiskers-app": "workspace:*"
-  },
   "devDependencies": {
     "@types/bun": "latest"
   },
