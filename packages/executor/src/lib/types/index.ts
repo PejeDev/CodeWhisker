@@ -17,7 +17,7 @@ export const WhiskersExecutorOptions = z.record(WhiskersExecutorOption)
 
 export const WhiskersExecutorServiceEnum = {
   WHISKERS_DOCS: 'whiskers-docs',
-  WHISKERS_APP: 'whiskers-app',
+  WHISKERS_WEB: 'whiskers-web',
   WHISKERS_BACK: 'whiskers-back',
   WHISKERS_FULL: 'whiskers-full',
 } as const

@@ -22,7 +22,7 @@ describe('runService', () => {
   it('should run the correct service function based on the provided enum', () => {
     const mockRunFunction: WhiskerServiceRunFunctionType = jest.fn()
     const mockEnum: WhiskersExecutorServiceEnumType =
-      WhiskersExecutorServiceEnum.WHISKERS_APP
+      WhiskersExecutorServiceEnum.WHISKERS_WEB
 
     runService[mockEnum] = mockRunFunction
 

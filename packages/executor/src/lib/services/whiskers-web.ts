@@ -5,7 +5,7 @@ import type {
 } from '../types'
 import { logger } from '../utils/logger'
 
-export async function runWhiskersApp(
+export async function runWhiskersWeb(
   context: WhiskerExecutorInputContextType,
   values: WhiskersExecutorValuesType,
 ): Promise<void> {
