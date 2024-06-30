@@ -12,5 +12,5 @@ export async function runWhiskersDocs(
   logger.info(`🚀 initializing ${values.service}`)
   const excCommand = values.dev ? `${context.commands}:dev` : context.commands
   logger.info(`🚀 running ${excCommand} on ${values.service}`)
-  await $`bun --filter '${values.service}' ${excCommand} `
+  await $`bun --cwd ${`${context.projectFolder}/apps/${values.service}`} ${excCommand} `
 }
