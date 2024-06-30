@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  reactStrictMode: false,
+}
 
-// biome-ignore lint/style/noDefaultExport: <explanation>
 export default nextConfig

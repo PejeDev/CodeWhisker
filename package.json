@@ -6,6 +6,14 @@
   "workspaces": ["apps/*", "packages/*", "packages/shared/*"],
   "scripts": {
     "exc": "bun run --cwd packages/executor exc",
-    "test:executor": "bun test --cwd packages/executor"
+    "test:executor": "bun test --cwd packages/executor",
+    "prepare": "husky",
+    "lint": "bun run lint:packages && bun run lint:apps",
+    "lint:packages": "bun run biome ci ./packages ",
+    "lint:apps": "bun run biome ci ./apps "
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "husky": "^9.0.11"
   }
 }
